@@ -23,6 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_5->hide();
     ui->label_6->hide();
 
+    ui->pushButton->setGeometry(400,400,150,150);
+    ui->pushButton_2->setGeometry(800,400,150,150);
+
     for (j=0; j<25; ++j)
         card[j]=j;
     for (j=0; j<25; ++j)
@@ -69,12 +72,12 @@ void MainWindow::on_pushButton_clicked()
     ui->label_5->setStyleSheet("#label_5{border-image:url(:/BLACK)}");
     ui->label_6->setStyleSheet("#label_6{border-image:url(:/BLACK)}");
 
-    ui->label  ->setGeometry(x[0],175,200,150);
-    ui->label_2->setGeometry(x[1],175,200,150);
-    ui->label_3->setGeometry(x[2],175,200,150);
-    ui->label_4->setGeometry(x[3],175,200,150);
-    ui->label_5->setGeometry(x[4],175,200,150);
-    ui->label_6->setGeometry(x[5],175,200,150);
+    ui->label  ->setGeometry(x[0],180,150,150);
+    ui->label_2->setGeometry(x[1],180,150,150);
+    ui->label_3->setGeometry(x[2],180,150,150);
+    ui->label_4->setGeometry(x[3],180,150,150);
+    ui->label_5->setGeometry(x[4],180,150,150);
+    ui->label_6->setGeometry(x[5],180,150,150);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()),
@@ -90,6 +93,13 @@ void MainWindow::MySlot()
 {
     for (i=0; i<6; ++i)
         x[i] = x[i] - 10;
+
+    ui->label  ->setStyleSheet("#label  {border-image:url(:/WHITE)}");
+    ui->label_2->setStyleSheet("#label_2{border-image:url(:/WHITE)}");
+    ui->label_3->setStyleSheet("#label_3{border-image:url(:/WHITE)}");
+    ui->label_4->setStyleSheet("#label_4{border-image:url(:/BLACK)}");
+    ui->label_5->setStyleSheet("#label_5{border-image:url(:/BLACK)}");
+    ui->label_6->setStyleSheet("#label_6{border-image:url(:/BLACK)}");
 
     QString Score = "Score:";
     Score += QString::number(score);
@@ -124,12 +134,12 @@ void MainWindow::MySlot()
     if (x[4]<100) {ui->label_5->setStyleSheet("#label_5{border-image:url(:/BLACK)}"); x[4]=card[j++]*200+2000; j%=25;}
     if (x[5]<100) {ui->label_6->setStyleSheet("#label_6{border-image:url(:/BLACK)}"); x[5]=card[j++]*200+2000; j%=25;}
 
-    ui->label  ->setGeometry(x[0], 200, 150, 100);
-    ui->label_2->setGeometry(x[1], 200, 150, 100);
-    ui->label_3->setGeometry(x[2], 200, 150, 100);
-    ui->label_4->setGeometry(x[3], 200, 150, 100);
-    ui->label_5->setGeometry(x[4], 200, 150, 100);
-    ui->label_6->setGeometry(x[5], 200, 150, 100);
+    ui->label  ->setGeometry(x[0],180,150,150);
+    ui->label_2->setGeometry(x[1],180,150,150);
+    ui->label_3->setGeometry(x[2],180,150,150);
+    ui->label_4->setGeometry(x[3],180,150,150);
+    ui->label_5->setGeometry(x[4],180,150,150);
+    ui->label_6->setGeometry(x[5],180,150,150);
 
     ui->label  ->show();
     ui->label_2->show();
